@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f4e4ba, #e8cfa6, #d9b3a4);
+}
+
+/* Main card */
+.container {
+    width: 100%;
+    max-width: 460px;
+    padding: 35px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.15),
+        0 5px 20px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+/* Heading */
+.container h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.container h2::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 4px;
+    margin: 10px auto 0;
+    border-radius: 10px;
+    background: #af4d98;
+}
+
+/* Form */
+form {
+    margin-top: 30px;
+}
+
+/* Amount */
+.amount p,
+.from p,
+.to p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+.amount input {
+    width: 100%;
+    height: 55px;
+    padding: 0 16px;
+    border: 1.5px solid #dedede;
+    border-radius: 14px;
+    outline: none;
+    background: #fafafa;
+    font-family: inherit;
+    font-size: 16px;
+    color: #222;
+    transition: 0.25s ease;
+}
+
+.amount input:hover {
+    border-color: #c9c9c9;
+}
+
+.amount input:focus {
+    border-color: #af4d98;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(175, 77, 152, 0.10);
+}
+
+/* Currency area */
+.dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 26px;
+}
+
+.from,
+.to {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Currency select box */
+.select-container {
+    width: 100%;
+    height: 55px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid #dedede;
+    border-radius: 14px;
+    background: #fafafa;
+    transition: 0.25s ease;
+}
+
+.select-container:hover {
+    border-color: #c9c9c9;
+}
+
+.select-container:focus-within {
+    border-color: #af4d98;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(175, 77, 152, 0.10);
+}
+
+/* Flags */
+.select-container img {
+    width: 30px;
+    height: 22px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* Select */
+.select-container select {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Swap icon */
+.dropdown>i {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    margin-top: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #f4e7f2;
+    color: #af4d98;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdown>i:hover {
+    color: white;
+    background: #af4d98;
+    transform: rotate(180deg);
+}
+
+/* Result message */
+.msg {
+    min-height: 58px;
+    margin: 28px 0 20px;
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg,
+            #fbf3f9,
+            #f5e7f2);
+    border: 1px solid #ead3e5;
+    color: #813a72;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Button */
+form button {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 14px;
+    outline: none;
+    background: linear-gradient(135deg,
+            #af4d98,
+            #913b7e);
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(175, 77, 152, 0.25);
+    transition: all 0.25s ease;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(175, 77, 152, 0.32);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+/* Tablet */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 28px 22px;
+        border-radius: 20px;
+    }
+
+    .container h2 {
+        font-size: 24px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+    .container {
+        padding: 24px 18px;
+    }
+
+    .dropdown {
+        gap: 10px;
+    }
+
+    .dropdown>i {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .select-container {
+        padding: 0 8px;
+    }
+
+    .select-container img {
+        width: 27px;
+        height: 20px;
+    }
+
+    .select-container select {
+        font-size: 14px;
+    }
+}
