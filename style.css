@@ -122,6 +122,11 @@ form {
     transition: 0.25s ease;
 }
 
+.currency-name {
+    font-size: 12px;
+    text-align: center;
+}
+
 .select-container:hover {
     border-color: #c9c9c9;
 }

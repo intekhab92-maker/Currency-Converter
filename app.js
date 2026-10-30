@@ -11,26 +11,45 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
-// ---------- Populate dropdowns ----------
+
 for (const select of dropdowns) {
-    for (const currency_code in country_List) {
+    for (const currency_code in currency_Name) {
         const option = document.createElement("option");
+
         option.value = currency_code;
-        option.innerText = currency_code;
-        if (select.name === "from" && currency_code === "USD") option.selected = true;
-        if (select.name === "to" && currency_code === "INR") option.selected = true;
+        option.textContent = `${currency_code} - ${currency_Name[currency_code]}`;
+
+        if (select.name === "from" && currency_code === "USD") {
+            option.selected = true;
+        }
+
+        if (select.name === "to" && currency_code === "INR") {
+            option.selected = true;
+        }
+
         select.appendChild(option);
     }
+
     select.addEventListener("change", (evt) => {
         updateFlag(evt.target);
-        updatedCurrency(); // optional: auto-convert when a currency changes
+        updatedCurrency();
     });
 }
 
+
 const updateFlag = (select) => {
-    const country_code = country_List[select.value];
-    const img = select.parentElement.querySelector("img");
-    img.src = `https://flagsapi.com/${country_code}/flat/64.png`;
+  const currencyCode = select.value;
+  const countryCode = country_List[currencyCode];
+  const currencyName = currency_Name[currencyCode];
+
+  const img = select.parentElement.querySelector("img");
+  const nameElement = document.querySelector("#currency-name");
+
+  if (countryCode) {
+    img.src = `https://flagsapi.com/${countryCode}/flat/64.png`;
+  }
+
+  nameElement.textContent = currencyName || currencyCode;
 };
 
 // ---------- API with fallback ----------
@@ -95,7 +114,7 @@ const updatedCurrency = async () => {
 
 btn.addEventListener("click", (evt) => {
     evt.preventDefault();
-    updatedCurrency();   // this line was missing
+    updatedCurrency();   
 });
 
 window.addEventListener("load", () => {
